@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>희영 동아리 · 10회차 실험 커리큘럼 (최종)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Noto+Serif+KR:wght@400;600;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf6f1;
+  --paper: #fffdf9;
+  --ink: #1a1612;
+  --ink-light: #4a4540;
+  --ink-dim: #8a837a;
+  --ink-faint: #c5bfb6;
+  --red: #c44536;
+  --red-bg: #fef2f0;
+  --teal: #1a7a6d;
+  --teal-bg: #eef8f6;
+  --amber: #b8860b;
+  --amber-bg: #fdf8ed;
+  --indigo: #3d5a99;
+  --indigo-bg: #f0f3fa;
+  --plum: #7b3f72;
+  --plum-bg: #f8f0f7;
+  --green: #3a7d44;
+  --green-bg: #f0f7f1;
+  --border: #e8e0d6;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 40% 30% at 15% 25%, rgba(196,69,54,0.04), transparent),
+    radial-gradient(ellipse 35% 25% at 85% 70%, rgba(26,122,109,0.04), transparent);
+}
+.hero-inner { position: relative; max-width: 700px; text-align: center; }
+.hero-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  border: 1.5px solid var(--red);
+  padding: 4px 14px;
+  display: inline-block;
+  margin-bottom: 2rem;
+  opacity:0; animation: fadeIn .5s .2s forwards;
+}
+.hero h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem,4vw,2.8rem);
+  line-height: 1.35;
+  margin-bottom: 1.25rem;
+  opacity:0; animation: fadeUp .6s .3s forwards;
+}
+.hero h1 .accent { color: var(--red); }
+.hero-sub {
+  font-size: 1rem;
+  color: var(--ink-light);
+  font-weight: 300;
+  max-width: 550px;
+  margin: 0 auto;
+  opacity:0; animation: fadeUp .6s .5s forwards;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  opacity:0; animation: fadeUp .6s .6s forwards;
+}
+.hero-meta-item { text-align: center; }
+.hero-meta-item .num {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: var(--ink);
+}
+.hero-meta-item .label {
+  font-size: 0.72rem;
+  color: var(--ink-dim);
+  letter-spacing: 0.05em;
+}
+
+.container { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+section { padding: 4rem 0; }
+.divider { width: 36px; height: 3px; background: var(--red); margin-bottom: 1.5rem; }
+.section-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--ink-dim);
+  margin-bottom: 0.4rem;
+}
+.section-title {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 900;
+  font-size: clamp(1.4rem,2.5vw,1.9rem);
+  line-height: 1.35;
+  margin-bottom: 0.6rem;
+}
+
+.overview-banner {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--red);
+  border-radius: 0 14px 14px 0;
+  padding: 2rem 2.25rem;
+  margin-bottom: 2.5rem;
+}
+.overview-banner h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--red);
+  margin-bottom: 0.75rem;
+}
+.overview-banner p {
+  font-size: 0.9rem;
+  color: var(--ink-light);
+  line-height: 1.85;
+}
+
+.semester-label {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  margin: 3rem 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.semester-label .bar { flex: 1; height: 1px; background: var(--border); }
+.semester-sub {
+  font-size: 0.82rem;
+  color: var(--ink-dim);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.session-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  transition: box-shadow .3s;
+}
+.session-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+
+.session-head {
+  padding: 1.75rem 2rem 1.25rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border);
+}
+.session-num-box {
+  flex-shrink: 0;
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: white;
+}
+.session-head-text { flex: 1; }
+.session-head-text h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+.session-head-text .source {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--ink-dim);
+}
+.session-head-text .source a {
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(26,122,109,0.3);
+}
+.session-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
+.tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  border: 1px solid;
+}
+.tag-chem { color: var(--indigo); background: var(--indigo-bg); border-color: #cdd6ec; }
+.tag-bio { color: var(--green); background: var(--green-bg); border-color: #c5dfc9; }
+.tag-animal { color: var(--plum); background: var(--plum-bg); border-color: #dcc8da; }
+.tag-micro { color: var(--teal); background: var(--teal-bg); border-color: #c8e6e0; }
+.tag-data { color: var(--amber); background: var(--amber-bg); border-color: #ecdcb5; }
+
+.session-body { padding: 1.5rem 2rem 1.75rem; }
+.session-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media(max-width:700px) { .session-grid { grid-template-columns: 1fr; } }
+
+.s-cell {
+  padding: 1.1rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+.s-cell h4 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.s-cell p {
+  font-size: 0.84rem;
+  color: var(--ink-light);
+  line-height: 1.7;
+}
+.s-cell.full { grid-column: 1 / -1; }
+
+.hv-box {
+  border-left: 3px solid var(--red);
+  background: var(--red-bg);
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  margin-top: 1rem;
+}
+.hv-box h4 { font-size: 0.78rem; font-weight: 700; color: var(--red); margin-bottom: 0.3rem; }
+.hv-box p { font-size: 0.82rem; color: var(--ink-light); line-height: 1.7; }
+
+.cap-box {
+  border-left: 3px solid var(--teal);
+  background: var(--teal-bg);
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  margin-top: 0.75rem;
+}
+.cap-box h4 { font-size: 0.78rem; font-weight: 700; color: var(--teal); margin-bottom: 0.3rem; }
+.cap-box p { font-size: 0.82rem; color: var(--ink-light); line-height: 1.7; }
+
+.time-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--ink-dim);
+}
+.time-bar .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.summary-table-wrap { overflow-x: auto; margin: 2rem 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+thead th {
+  font-weight: 600; text-align: left;
+  padding: 0.75rem 1rem;
+  background: var(--paper);
+  border-bottom: 2px solid var(--border);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-dim);
+}
+tbody td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink-light);
+  vertical-align: top;
+}
+tbody tr:hover { background: rgba(0,0,0,0.01); }
+.td-num { font-family: 'IBM Plex Mono', monospace; font-weight: 600; color: var(--ink); }
+
+.final-box {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  margin: 3rem 0;
+}
+.final-box h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 900;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.final-box p {
+  font-size: 0.92rem;
+  color: var(--ink-light);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+.final-box .red { color: var(--red); font-weight: 700; }
+
+footer {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  font-size: 0.75rem;
+  color: var(--ink-dim);
+  border-top: 1px solid var(--border);
+}
+
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+.reveal { opacity:0; transform:translateY(20px); transition: opacity .5s, transform .5s; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">FINAL · Exploratorium × 숨겨진 변수 프레임워크</div>
+    <h1>희영아, 이렇게<br><span class="accent">10회차를 채워보자</span></h1>
+    <p class="hero-sub">
+      Exploratorium Science Snacks에서 희영이 동아리에 딱 맞는 실험들을 골랐어.
+      핵심은 매 회차마다 <strong>"같은 조건인데 왜 결과가 다르지?"</strong>라는 질문을 심는 거야.
+      그냥 실험하고 끝내는 게 아니라, <strong>생각하는 훈련</strong>이 되어야 해.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><div class="num">10</div><div class="label">총 회차</div></div>
+      <div class="hero-meta-item"><div class="num">2h</div><div class="label">회당 시간</div></div>
+      <div class="hero-meta-item"><div class="num">25–30</div><div class="label">참여 인원</div></div>
+      <div class="hero-meta-item"><div class="num">4–5</div><div class="label">팀 편성</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+<!-- ═══ OVERVIEW ═══ -->
+<section>
+<div class="reveal">
+  <div class="section-num">먼저 큰 그림부터</div>
+  <div class="divider"></div>
+  <h2 class="section-title">왜 이렇게 짰는지 설명할게</h2>
+
+  <div class="overview-banner">
+    <h3>🧭 희영아, 보통 동아리가 왜 진부해지는지 알아?</h3>
+    <p>
+      대부분의 동아리가 매 회차마다 서로 관련 없는 실험을 하나씩 해. DNA 추출 한 번, 아스피린 합성 한 번… 이러면 세특에 "○○ 실험을 했다"밖에 안 남거든. 희영이 1학년 때도 솔직히 그런 식이었잖아.<br><br>
+      내가 짠 이 커리큘럼은 달라. 모든 회차의 실험이 <span style="color:var(--red); font-weight:600;">"같은 조건인데 왜 사람/세포/생물마다 결과가 다른가?"</span>라는 하나의 큰 질문 아래 연결돼 있어.
+      1학기에는 그 "다름"을 여러 스케일(분자 → 세포 → 미생물 → 방어막)에서 직접 관찰하고,
+      2학기에는 그 원인을 추적해서 도구까지 만드는 흐름이야.<br><br>
+      Exploratorium Snacks를 기반으로 한 이유는 간단해 — 재료가 싸고, 설명서가 명확하고, 2시간 안에 끝나.
+      학교 동아리에서 하기 딱 좋아. 단, <strong>희영이가 부장으로서 각 실험에 "숨겨진 변수" 질문을 얹는 게 핵심</strong>이라는 거 잊지 마.
+    </p>
+  </div>
+
+  <div class="overview-banner" style="border-left-color: var(--plum);">
+    <h3 style="color:var(--plum);">🐾 동물 쪽 관심 있는 부원들도 고려했어</h3>
+    <p>
+      희영이가 동물에 관심 있는 친구들도 있다고 했잖아. 그래서 <strong>2학기에 동물 행동·생태 실험을 집중 배치</strong>했어.
+      포식자-피식자 시뮬레이션, 학교 생태 조사, 위장술 모델링 같은 건데 —
+      이것들도 전부 "같은 환경인데 왜 어떤 종은 살아남고 어떤 종은 안 되는가?"라는
+      숨겨진 변수 프레임워크랑 연결돼. 따로 노는 실험은 하나도 없어.
+    </p>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════ 1학기 ═══════════════ -->
+<section>
+<div class="reveal">
+  <div class="semester-label" style="color:var(--red);">
+    1학기: "개인차"의 발견
+    <span class="bar"></span>
+  </div>
+  <p class="semester-sub">
+    같은 물질이 사람마다 다르게 작용하는 현상을, 분자 → 세포 → 미생물 → 방어막 순서로 하나씩 넓혀가면서 관찰하는 단계야.
+  </p>
+
+  <!-- ══ Session 01 ══ -->
+  <div class="session-card">
+    <div class="session-head">
+      <div class="session-num-box" style="background:var(--red);">01</div>
+      <div class="session-head-text">
+        <h3>"같은 우유인데 왜 나만 배탈이 나지?"</h3>
+        <div class="source">기반 실험: <a href="https://www.exploratorium.edu/snacks/milk-makes-me-sick" target="_blank">Milk Makes Me Sick</a> — Exploratorium</div>
+        <div class="session-tags">
+          <span class="tag tag-chem">화학: 효소반응</span>
+          <span class="tag tag-bio">생명: 유전적 개인차</span>
+          <span class="tag tag-data">설문 연계</span>
+        </div>
+      </div>
+    </div>
+    <div class="session-body">
+      <div class="session-grid">
+        <div class="s-cell">
+          <h4>🧪 실험 내용</h4>
+          <p>
+            락타아제 효소를 일반 우유와 락토프리 우유에 각각 넣고,
+            <strong>포도당 검사 스트립으로 유당이 분해됐는지</strong> 확인하는 거야.
+            효소가 있으면 유당이 포도당 + 갈락토스로 쪼개지면서 검사지 색이 바뀌고,
+            없으면 안 바뀌거든. 눈으로 딱 보여.
+          </p>
+        </div>
+        <div class="s-cell">
+          <h4>📊 추가 활동 (30분)</h4>
+          <p>
+            실험 끝나면 <strong>급우한테 유당불내증 경험 설문</strong>을 돌려봐.
+            "우유 마시면 배가 불편한 적 있어?",
+            "요거트는 괜찮아?" 같은 거.
+            실험 데이터랑 실제 개인차를 연결하는 연습이야.
+          </p>
+        </div>
+      </div>
+      <div class="hv-box">
+        <h4>🔑 여기서 숨겨진 변수가 뭐냐면</h4>
+        <p>
+          같은 우유(Input)인데 누군가는 배탈(Output)이 나는 이유 — <strong>락타아제 효소가 어른이 돼서도 남아 있느냐 아니냐</strong>의 차이야.
+          동아시아인은 약 90%가 어른 되면 이 효소가 줄어드는데, 유럽계는 약 30%만 줄어들거든. 유전자(LCT)가 숨겨진 변수인 거지.
+          <strong>첫 시간에 "유전자 = 화학 반응의 숨겨진 변수"라는 틀을 부원들 머릿속에 심어놓는 게 포인트야.</strong>
+        </p>
+      </div>
+      <div class="cap-box">
+        <h4>👑 희영이 네가 할 일</h4>
+        <p>
+          첫 회차니까 제일 중요해. 실험 시작 전에 15분 동안 직접 서서 이렇게 말해:
+          <strong>"올해 우리 동아리는 매번 같은 질문을 던질 거야 — 같은 조건인데 왜 결과가 다를까?"</strong>
+          이 선언이 동아리 1년의 방향을 잡아줘. 이 15분이 1년 치 세특의 기초야.
+        </p>
+      </div>
+      <div class="time-bar">
+        <span class="dot" style="background:var(--red);"></span>
+        워크숍 15분 + 실험 75분 + 설문·토론 30분 = 총 2시간 · 1회 완결
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ Session 02 ══ -->
+  <div class="session-card">
+    <div class="session-head">
+      <div class="session-num-box" style="background:var(--amber);">02</div>
+      <div class="session-head-text">
+        <h3>"같은 사탕인데 왜 나랑 네 맛이 다르지?"</h3>
+        <div class="source">기반 실험: <a href="https://www.exploratorium.edu/snacks/your-sense-of-taste" target="_blank">Your Sense of Taste</a> — Exploratorium</div>
+        <div class="session-tags">
+          <span class="tag tag-chem">화학: 수용체 구조</span>
+          <span class="tag tag-bio">생명: 감각 개인차</span>
+          <span class="tag tag-animal">동물: 미각 비교</span>
+        </div>
+      </div>
+    </div>
+    <div class="session-body">
+      <div class="session-grid">
+        <div class="s-cell">
+          <h4>🧪 실험 내용</h4>
+          <p>
+            코를 막고 사탕을 먹으면서 <strong>혀만으로 맛을 구분</strong>해보는 거야.
+            코를 막으면 체리맛이랑 딸기맛 구분이 안 된다는 걸 직접 느끼게 돼.
+            추가로 PTC 시험지(쓴맛 검사지)를 써보면 <strong>같은 물질인데 사람마다 느끼는 쓴맛의 강도가 완전히 다르다</strong>는 걸 확인할 수 있어.
+          </p>
+        </div>
+        <div class="s-cell">
+          <h4>🐾 동물 관심 부원에게 던져줄 질문</h4>
+          <p>
+            <strong>"고양이는 단맛을 왜 못 느낄까?"</strong>
+            고양이는 단맛 수용체를 만드는 유전자(Tas1r2)가 고장나 있어서 아예 단맛을 못 느껴.
+            같은 음식인데 종마다 맛이 다른 이유를 진화 관점에서 이야기하면
+            동물 좋아하는 친구들이 확 빠져들 거야.
+          </p>
+        </div>
+      </div>
+      <div class="hv-box">
+        <h4>🔑 여기서 숨겨진 변수가 뭐냐면</h4>
+        <p>
+          같은 음식(Input)인데 사람마다 맛 강도가 다른 이유 = <strong>혀에 있는 미각 수용체 유전자(TAS2R38 등)의 차이</strong>야.
+          인구의 약 25%는 맛을 아주 강하게 느끼는 "슈퍼테이스터", 50%는 보통, 25%는 둔감한 편이거든.
+          1회차(효소 차이) + 이번(수용체 차이) → <strong>"유전자가 화학적 반응을 좌우한다"는 패턴이 벌써 두 번째 확인</strong>되는 거야.
+        </p>
+      </div>
+      <div class="time-bar">
+        <span class="dot" style="background:var(--amber);"></span>
+        실험 60분 + 토론·동물 확장 60분 = 총 2시간 · 1회 완결
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ Session 03 — CHANGED: Agar only ══ -->
+  <div class="session-card">
+    <div class="session-head">
+      <div class="session-num-box" style="background:var(--indigo);">03</div>
+      <div class="session-head-text">
+        <h3>"같은 물질인데 왜 세포 크기에 따라 스며드는 정도가 다를까?"</h3>
+        <div class="source">기반 실험: <a href="https://www.exploratorium.edu/snacks/agar-cell-diffusion" target="_blank">Agar Cell Diffusion</a> — Exploratorium</div>
+        <div class="session-tags">
+          <span class="tag tag-chem">화학: 확산·pH</span>
+          <span class="tag tag-bio">생명: 세포 크기와 한계</span>
+        </div>
+      </div>
+    </div>
+    <div class="session-body">
+      <div class="session-grid">
+        <div class="s-cell">
+          <h4>🧪 실험 내용</h4>
+          <p>
+            한천(agar)에 <strong>pH 지시약</strong>을 섞어서 굳힌 다음, 1cm·2cm·3cm 크기로 잘라.
+            이걸 식초에 담그면 산(H⁺)이 바깥에서 안쪽으로 스며들면서 <strong>색이 변하기 시작</strong>하거든.
+            작은 블록은 속까지 완전히 색이 바뀌는데, 큰 블록은 겉만 바뀌고 안쪽은 그대로야.
+            이걸 잘라서 단면을 보면 "얼마나 깊이 스며들었는지"가 눈에 딱 보여.
+          </p>
+        </div>
+        <div class="s-cell">
+          <h4>📐 숫자로 확인하기</h4>
+          <p>
+            블록 크기별로 <strong>"색이 안 변한 부분의 부피"</strong>를 재서,
+            전체 부피 대비 스며든 비율을 계산해봐.
+            작을수록 100%에 가깝고, 클수록 비율이 뚝 떨어져.
+            이 데이터를 표로 만들면 <strong>발표할 때 가장 "과학 탐구"다운 그림</strong>이 나와.
+            큐브 크기 말고 식초 농도나 담그는 시간을 바꿔서 추가 실험도 가능해.
+          </p>
+        </div>
+      </div>
+      <div class="hv-box">
+        <h4>🔑 여기서 숨겨진 변수가 뭐냐면</h4>
+        <p>
+          같은 식초(Input)인데 블록 크기마다 침투율이 다른 이유 = <strong>표면적 대 부피의 비율(SA:V ratio)</strong>이야.
+          쉽게 말하면, 작은 세포일수록 겉넓이가 상대적으로 넓어서 물질이 빨리 스며드는 거야.
+          이게 왜 중요하냐면 — 같은 약을 먹어도 간세포랑 소장세포는 크기가 달라서 약물 흡수율이 다르거든.
+          1~2회차의 유전자 변수에 이어서, 이번에는 <strong>"물리적 구조"라는 새로운 종류의 숨겨진 변수</strong>가 등장하는 거야.
+        </p>
+      </div>
+      <div class="time-bar">
+        <span class="dot" style="background:var(--indigo);"></span>
+        한천 제작·절단 40분 + 식초 담금·관찰 50분 + 데이터 정리·토론 30분 = 총 2시간 · 1회 완결
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ Session 04 ══ -->
+  <div class="session-card">
+    <div class="session-head">
+      <div class="session-num-box" style="background:var(--teal);">04</div>
+      <div class="session-head-text">
+        <h3>"같은 우유인데 미생물이 바꾸면 전혀 다른 물질이 된다"</h3>
+        <div class="source">기반 실험: <a href="https://www.exploratorium.edu/snacks/bacteria-culture-club" target="_blank">Bacteria Culture Club</a> — Exploratorium</div>
+        <div class="session-tags">
+          <span class="tag tag-chem">화학: 발효·유기산</span>
+          <span class="tag tag-micro">미생물: 유산균 대사</span>
+        </div>
+      </div>
+    </div>
+    <div class="session-body">
+      <div class="session-grid">
+        <div class="s-cell">
+          <h4>🧪 실험 내용</h4>
+          <p>
+            시중에 파는 <strong>요거트(살아있는 유산균이 들어 있는 것)</strong>를 우유에 섞고,
+            43~46°C로 8~12시간 놔두면 요거트가 돼.
+            이때 온도를 잘 맞춘 그룹이랑 실온에 둔 그룹의 결과를 비교해봐.
+            발효 속도, 맛, 걸쭉함이 전부 다를 거야.
+            유산균이 유당을 먹고 유산(lactic acid)을 뱉으면서 단백질이 응고되는 원리야.
+          </p>
+        </div>
+        <div class="s-cell">
+          <h4>💡 이 실험에서 꼭 던져야 할 질문</h4>
+          <p>
+            "같은 우유 + 같은 유산균인데, 온도만 달라도 결과가 다르다" — 여기까지는 확인했지?
+            그다음에 이 질문을 던져: <strong>"그러면 같은 음식이 사람마다 다른 장내 미생물을 거치면, 얼마나 다른 물질로 바뀔까?"</strong>
+            이게 바로 전에 배운 이소플라본 → 에쿠올 전환 이야기랑 같은 구조야.
+          </p>
+        </div>
+      </div>
+      <div class="hv-box">
+        <h4>🔑 여기서 숨겨진 변수가 뭐냐면</h4>
+        <p>
+          미생물은 Input(음식)과 Output(체내 물질) 사이에 끼어든 <strong>"보이지 않는 변환자"</strong>야.
+          1~3회차에서 유전자·수용체·세포 크기를 봤으면, 이번에는 <strong>미생물이라는 완전히 새로운 종류의 숨겨진 변수</strong>가 등장하는 거야.
+          핵심은 이거야: 이 미생물의 구성이 사람마다 다르기 때문에, 같은 음식을 먹어도 몸속에서 만들어지는 물질이 사람마다 달라.
+        </p>
+      </div>
+      <div class="time-bar">
+        <span class="dot" style="background:var(--teal);"></span>
+        접종 30분 + 대기 중 토론·문헌조사 60분 + 결과 관찰 30분 = 총 2시간 · 배양 결과는 다음 주 확인
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ Session 05 — CHANGED: Skin Shield ══ -->
+  <div class="session-card">
+    <div class="session-head">
+      <div class="session-num-box" style="background:var(--plum);">05</div>
+      <div class="session-head-text">
+        <h3>"같은 토마토인데 왜 상처 난 쪽만 썩을까?"</h3>
+        <div class="source">기반 실험: <a href="https://www.exploratorium.edu/snacks/skin-shield" target="_blank">Skin Shield</a> — Exploratorium</div>
+        <div class="session-tags">
+          <span class="tag tag-bio">생명: 방어막·면역</span>
+          <span class="tag tag-micro">미생물: 감염 경로</span>
+          <span class="tag tag-data">1학기 종합 발표</span>
+        </div>
+      </div>
+    </div>
+    <div class="session-body">
+      <div class="session-grid">
+        <div class="s-cell">
+          <h4>🧪 실험 내용</h4>
+          <p>
+            토마토 2개를 준비해서, <strong>하나에만 이쑤시개로 구멍 6개</strong>를 내.
+            나머지 하나는 아무것도 안 하고 그대로 둬. 같은 접시 위에 올리고 실온에서 <strong>1주일 이상 매일 관찰</strong>하는 거야.
+            질량, 크기, 색, 냄새, 표면 상태 변화를 기록해봐.
+            상처 낸 토마토가 훨씬 빨리 곰팡이나 세균에 감염되고 물러지는 게 눈에 보일 거야.
+            준비물이 토마토, 이쑤시개, 돋보기, 저울 정도면 끝이야.
+          </p>
+        </div>
+        <div class="s-cell">
+          <h4>🔬 더 깊이 가려면</h4>
+          <p>
+            변수를 바꿔볼 수 있어:
+            <strong>상처 크기(구멍 1개 vs 6개)</strong>, <strong>과일 종류(사과·복숭아·자두)</strong>,
+            <strong>보관 조건(냉장 vs 실온 vs 밀폐)</strong> 등.
+            "상처가 크면 더 빨리 썩을까? 아니면 상처 위치가 더 중요할까?" 같은
+            가설을 세워서 팀별로 다른 조건으로 돌리면 데이터가 풍부해져.
+            <em>※ 이 실험은 4회차 때 미리 셋업해서 5회차 때 결과를 관찰하면 딱 맞아.</em>
+          </p>
+        </div>
+      </div>
+      <div class="hv-box">
+        <h4>🔑 여기서 숨겨진 변수가 뭐냐면</h4>
+        <p>
+          같은 토마토(Input)인데 하나만 썩는 이유 = <strong>껍질이라는 물리적·화학적 방어막</strong>이 있느냐 없느냐야.
+          토마토 껍질은 미생물이 침입하지 못하게 막는 장벽인데, 상처를 내면 그 방어막이 무너져서 미생물이 바로 들어오거든.
+          이건 사람 피부도 똑같아 — 피부는 약간 산성이고 세포가 빽빽해서 미생물이 못 뚫어. 근데 상처 나면 뚫리지.
+          1~4회차에서 유전자·세포 크기·미생물을 봤으면, 이번에는 <strong>"방어막의 유무"라는 가장 기본적이지만 강력한 숨겨진 변수</strong>를 다루는 거야.
+        </p>
+      </div>
+      <div class="cap-box">
+        <h4>📊 1학기 종합 발표도 이 시간에 같이 해</h4>
+        <p>
+          실험 관찰(40분) 끝나면 나머지 시간(80분)에 <strong>1~5회차에서 발견한 숨겨진 변수를 팀별로 정리 발표</strong>시켜:<br>
+          ① 유전자(효소·수용체) ② 세포 구조(크기·표면적) ③ 미생물(장내 변환자) ④ 방어막(껍질·피부)<br>
+          → "이 변수들이 일상에서 어떤 문제를 만들까?"를 토론하면서 2학기 방향을 잡는 거야.
+          5회차까지 오면 부원들이 개인차의 원인을 4가지 층위에서 이해하게 돼. 이 정도면 대부분의 고교 동아리보다 훨씬 앞서 있는 거야.
+        </p>
+      </div>
+      <div class="time-bar">
+        <span class="dot" style="background:var(--plum);"></span>
+        실험 관찰·기록 40분 + 1학기 종합 발표·토론 80분 = 총 2시간 · 셋업은 4회차에 미리
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════ 2학기 ═══════════════ -->
+<section>
+<div class="reveal">
+  <div class="semester-label" style="color:var(--teal);">
+    2학기: 숨겨진 변수의 추적과 도구화
+    <span class="bar"></span>
+  </div>
+  <p class="semester-sub">
+    1학기에 발견한 변수들을 생태·환경·동물까지 넓히고, 마지막엔 직접 쓸 수 있는 도구를 만드는 단계야.
+  </p>
+
+  <!-- ══ Session 06 ══ -->
+  <div class="session-card">
+    <div class="session-head">
+      <div class="session-num-box" style="background:var(--indigo);">06</div>
+      <div class="session-head-text">
+        <h3>"같은 바다인데 왜 어떤 조개는 껍질이 녹을까?"</h3>
+        <div class="source">기반 실험: <a href="https://www.exploratorium.edu/snacks/ocean-acidification-in-cup" target="_blank">Ocean Acidification in a Cup</a> — Exploratorium</div>
+        <div class="session-tags">
+          <span class="tag tag-chem">화학: pH·이산화탄소</span>
+          <span class="tag tag-animal">동물: 해양생물</span>
+          <span class="tag tag-bio">생명: 생태계 반응</span>
+        </div>
+      </div>
+    </div>
+    <div class="session-body">
+      <div class="session-grid">
+        <div class="s-cell">
+          <h4>🧪 실험 내용</h4>
+          <p>
+            컵에 <strong>브로모티몰 블루(pH 지시약)</strong>를 탄 물을 넣고,
+            그 위에 식초 + 베이킹소다로 만든 CO₂를 흘려보내.
+            CO₂가 물에 녹아서 탄산이 되면 pH가 낮아지면서 <strong>물 색이 바뀌는 걸 실시간으로 볼 수 있어</strong>.
+            추가로 달걀 껍질(탄산칼슘)을 산성 용액에 넣으면 녹는 속도도 측정할 수 있어서,
+            "바닷물이 산성이 되면 조개 껍질이 어떻게 되는지"를 직접 모델링하는 거야.
+          </p>
+        </div>
+        <div class="s-cell">
+          <h4>🐾 동물 관심 부원에게 이 질문 던져봐</h4>
+          <p>
+            <strong>"같은 바다인데 왜 어떤 종은 더 취약할까?"</strong>
+            조개류는 탄산칼슘으로 껍질을 만드니까 산성화에 바로 타격을 받는데,
+            해파리는 껍질 자체가 없어서 오히려 경쟁자가 줄면 번성하거든.
+            → 종의 "화학적 구조"가 환경 변화에 대한 취약성을 결정하는 숨겨진 변수라는 걸 보여주는 거야.
+          </p>
+        </div>
+      </div>
+      <div class="hv-box">
+        <h4>🔑 여기서 숨겨진 변수가 뭐냐면</h4>
+        <p>
+          같은 바다(Input)인데 종마다 반응이 다른 이유 = <strong>몸을 구성하는 물질의 화학적 조성</strong>이야.
+          1학기에 사람 수준에서 본 개인차를, 이번에는 <strong>종(species) 수준의 차이</strong>로 넓히는 거지.
+        </p>
+      </div>
+      <div class="time-bar">
+        <span class="dot" style="background:var(--indigo);"></span>
+        CO₂ 확산 실험 60분 + 껍질 용해 40분 + 토론 20분 = 총 2시간 · 1회 완결
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ Session 07 ══ -->
+  <div class="session-card">
+    <div class="session-head">
+      <div class="session-num-box" style="background:var(--plum);">07</div>
+      <div class="session-head-text">
+        <h3>"같은 환경에서 왜 어떤 포식자만 살아남을까?"</h3>
+        <div class="source">기반 실험: <a href="https://www.exploratorium.edu/snacks/bean-counter-evolution" target="_blank">Bean-Counter Evolution</a> — Exploratorium</div>
+        <div class="session-tags">
+          <span class="tag tag-animal">동물: 자연선택 시뮬레이션</span>
+          <span class="tag tag-bio">생명: 진화·적응</span>
+          <span class="tag tag-data">데이터 수집·분석</span>
+        </div>
+      </div>
+    </div>
+    <div class="session-body">
+      <div class="session-grid">
+        <div class="s-cell">
+          <h4>🧪 실험 내용</h4>
+          <p>
+            포식자 팀별로 다른 <strong>"입"(젓가락, 핀셋, 숟가락, 집게)</strong>을 나눠주고,
+            바닥에 뿌린 여러 종류의 콩(먹이)을 제한 시간 안에 최대한 많이 모으는 게임이야.
+            한 라운드가 끝나면 가장 많이 모은 팀의 "입"이 다음 세대에 더 많아지는 식으로 3~4세대를 반복해.
+            <strong>"적합도(fitness)"가 높은 형질이 퍼지는 과정</strong>을 데이터로 확인할 수 있어.
+            25~30명이 동시에 할 수 있어서 우리 동아리 규모에 딱이야.
+          </p>
+        </div>
+        <div class="s-cell">
+          <h4>🐾 동물 관심 부원이 좋아할 포인트</h4>
+          <p>
+            다윈핀치가 섬마다 부리 모양이 다른 이유,
+            치타가 빠르고 하이에나가 협력하는 이유 같은 걸 직접 체험하는 활동이거든.
+            데이터를 그래프로 만들면 <strong>"환경이 바뀌면 유리한 형질도 바뀐다"</strong>는 걸 눈으로 확인할 수 있어.
+          </p>
+        </div>
+      </div>
+      <div class="hv-box">
+        <h4>🔑 여기서 숨겨진 변수가 뭐냐면</h4>
+        <p>
+          같은 환경(Input)인데 생존률이 다른 이유 = <strong>형태적 적합도(morphological fitness)</strong>야.
+          근데 여기서 한 단계 더: 환경 조건을 바꾸면(콩 색 변경, 시간 제한 변경 등) 유리한 형질이 뒤집혀 →
+          <strong>"숨겨진 변수는 고정된 게 아니라 환경에 따라 바뀐다"</strong>는 걸 깨닫게 돼. 이건 진짜 강력한 통찰이야.
+        </p>
+      </div>
+      <div class="time-bar">
+        <span class="dot" style="background:var(--plum);"></span>
+        게임 3~4라운드 80분 + 데이터 분석·토론 40분 = 총 2시간 · 1회 완결
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ Session 08 ══ -->
+  <div class="session-card">
+    <div class="session-head">
+      <div class="session-num-box" style="background:var(--green);">08</div>
+      <div class="session-head-text">
+        <h3>"같은 학교 운동장인데 왜 이쪽과 저쪽의 곤충이 다를까?"</h3>
+        <div class="source">기반 실험: <a href="https://www.exploratorium.edu/snacks/backyard-bug-bonanza" target="_blank">Backyard Bug Bonanza</a> + <a href="https://www.exploratorium.edu/snacks/disappearing-act" target="_blank">Disappearing Act</a> — Exploratorium</div>
+        <div class="session-tags">
+          <span class="tag tag-animal">동물: 곤충 생태 조사</span>
+          <span class="tag tag-bio">생명: 생물다양성</span>
+          <span class="tag tag-data">현장 데이터 수집</span>
+        </div>
+      </div>
+    </div>
+    <div class="session-body">
+      <div class="session-grid">
+        <div class="s-cell">
+          <h4>🧪 실험 A: Backyard Bug Bonanza</h4>
+          <p>
+            학교 운동장이랑 정원의 <strong>서로 다른 구역</strong>(잔디밭, 화단, 콘크리트 근처, 급식실 뒤, 그늘 등)에서
+            곤충 종류랑 수를 세서 <strong>구역별 생물다양성</strong>을 비교하는 거야.
+            종 이름을 정확히 몰라도 괜찮아 — "작은 검은 파리", "빨간 딱정벌레" 식으로 유형별로 기록하면 돼.
+          </p>
+        </div>
+        <div class="s-cell">
+          <h4>🧪 실험 B: Disappearing Act</h4>
+          <p>
+            종이를 오려서 <strong>위장(camouflage) 모형 동물</strong>을 만들고,
+            다양한 배경 위에 올려놓은 다음 "몇 초 만에 발견하는지" 시간을 재봐.
+            배경과 패턴이 비슷할수록 발견이 늦어져 → <strong>포식 압력이 동물 외형을 결정하는 과정</strong>을 직접 체험하는 거야.
+          </p>
+        </div>
+      </div>
+      <div class="hv-box">
+        <h4>🔑 여기서 숨겨진 변수가 뭐냐면</h4>
+        <p>
+          같은 학교(Input)인데 구역마다 곤충 종류가 다른 이유 = <strong>미시환경(microhabitat)의 차이</strong>야.
+          잔디밭이랑 콘크리트 근처는 식물 종류, 습도, 그늘 정도가 전부 다르잖아.
+          이거 1학기에 배운 "같은 사람인데 장내 환경이 달라서 약 반응이 다르다"랑 구조가 똑같아.
+          <strong>스케일이 다를 뿐 "숨겨진 환경 변수"라는 패턴은 같다</strong>는 걸 발견하는 게 이번 회차의 핵심이야.
+        </p>
+      </div>
+      <div class="time-bar">
+        <span class="dot" style="background:var(--green);"></span>
+        야외 조사 70분 + Disappearing Act 30분 + 데이터 정리 20분 = 총 2시간 · 날씨 꼭 확인
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ Session 09 ══ -->
+  <div class="session-card">
+    <div class="session-head">
+      <div class="session-num-box" style="background:var(--amber);">09</div>
+      <div class="session-head-text">
+        <h3>종합 프로젝트: "숨겨진 변수 판별 흐름도" 만들기</h3>
+        <div class="source">기반: 1~8회차 전체 결과 종합</div>
+        <div class="session-tags">
+          <span class="tag tag-data">종합: 산출물 제작</span>
+          <span class="tag tag-chem">화학</span>
+          <span class="tag tag-bio">생명</span>
+        </div>
+      </div>
+    </div>
+    <div class="session-body">
+      <div class="session-grid">
+        <div class="s-cell full">
+          <h4>📋 이 시간에 할 일</h4>
+          <p>
+            팀별로 1~8회차에서 경험한 실험들을 바탕으로 <strong>"어떤 현상에서 개인차가 나타났을 때,
+            그 원인이 어디에 있는지 추적하는 흐름도"</strong>를 직접 설계하는 거야.<br><br>
+            흐름도 구조는 이런 느낌이야:<br>
+            "반응이 사람마다/생물마다 다르다" → ① 유전적 차이? (효소·수용체) →
+            ② 물리적 구조 차이? (세포 크기, 방어막) →
+            ③ 미생물 조성 차이? (장내·피부) →
+            ④ 환경 차이? (미시환경, 온도, pH)<br><br>
+            전에 보여줬던 레퍼런스 세특에서 "부작용 판별 흐름도"를 만든 것과 같은 방식인데,
+            여기서는 <strong>약에만 한정하지 않고, 모든 개인차 현상에 쓸 수 있는 범용 도구</strong>로 만드는 거야.
+          </p>
+        </div>
+      </div>
+      <div class="cap-box">
+        <h4>👑 희영아, 이 시간이 네 세특의 하이라이트야</h4>
+        <p>
+          각 팀이 자기 실험에서 발견한 변수를 중심으로 흐름도 조각을 만들면,
+          <strong>네가 그걸 연결해서 하나의 종합 도구로 완성</strong>하는 역할을 해.
+          "팀별 결과를 하나의 구조로 수렴시킨 사람" — 이 서사가 세특에서 가장 강력하게 찍히는 대목이야.
+        </p>
+      </div>
+      <div class="time-bar">
+        <span class="dot" style="background:var(--amber);"></span>
+        팀별 흐름도 설계 80분 + 통합 작업 40분 = 총 2시간 · 다음 주까지 다듬기
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ Session 10 ══ -->
+  <div class="session-card">
+    <div class="session-head">
+      <div class="session-num-box" style="background:var(--red);">10</div>
+      <div class="session-head-text">
+        <h3>최종 발표: "우리가 발견한 숨겨진 변수들"</h3>
+        <div class="source">동아리 내 발표 + 성찰</div>
+        <div class="session-tags">
+          <span class="tag tag-data">종합 발표</span>
+          <span class="tag tag-bio">한계 인식</span>
+        </div>
+      </div>
+    </div>
+    <div class="session-body">
+      <div class="session-grid">
+        <div class="s-cell">
+          <h4>📊 발표는 이런 순서로</h4>
+          <p>
+            <strong>①</strong> 1년간의 실험 요약 — 팀별 5분씩<br>
+            <strong>②</strong> 숨겨진 변수 종합 흐름도 발표 — 네가 주도, 15분<br>
+            <strong>③</strong> "이 흐름도의 한계는 뭘까?" 토론 — 20분<br>
+            <strong>④</strong> 후배들에게 남기는 후속 질문 정리
+          </p>
+        </div>
+        <div class="s-cell">
+          <h4>💡 세특 기록은 이 시간에 꼭 정리해</h4>
+          <p>
+            부원마다 자기 <strong>핵심 기여</strong>를 1문장으로 정리하게 시켜.
+            특히 너는 "부장으로서 전체 구조를 설계하고,
+            팀별 결과를 하나의 흐름도로 수렴시킨 과정"을
+            담당 선생님한테 전달할 <strong>세특 기록 메모</strong>를 여기서 써놔야 해.
+          </p>
+        </div>
+      </div>
+      <div class="hv-box">
+        <h4>🔑 마지막 숨겨진 변수: "우리가 모르는 것"</h4>
+        <p>
+          가장 성숙한 과학적 태도는 <strong>"아직 발견 못 한 숨겨진 변수가 더 있을 수 있다"</strong>를 인정하는 거야.
+          레퍼런스 세특에서 "미생물 데이터 표준화가 아직 어렵다"고 한계를 인정한 것처럼,
+          우리 흐름도도 완벽하지 않다는 걸 명시하고 → <strong>후속 질문으로 남기는 것</strong>으로 마무리해.
+          이게 있고 없고의 차이가 엄청 커. 선생님이 볼 때 확 다르게 느껴져.
+        </p>
+      </div>
+      <div class="time-bar">
+        <span class="dot" style="background:var(--red);"></span>
+        팀별 발표 50분 + 종합 발표 20분 + 토론·성찰 50분 = 총 2시간
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══ SUMMARY TABLE ═══ -->
+<section>
+<div class="reveal">
+  <div class="section-num">한눈에 보기</div>
+  <div class="divider"></div>
+  <h2 class="section-title">10회차 요약표</h2>
+
+  <div class="summary-table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>회차</th>
+        <th>Exploratorium 실험</th>
+        <th>숨겨진 변수</th>
+        <th>영역</th>
+        <th>비고</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="td-num">01</td><td>Milk Makes Me Sick</td><td>효소 유전자(LCT)</td><td>화학 + 생명</td><td>설문 연계</td></tr>
+      <tr><td class="td-num">02</td><td>Your Sense of Taste</td><td>미각 수용체(TAS2R38)</td><td>화학 + 생명</td><td>🐾 동물 확장</td></tr>
+      <tr><td class="td-num">03</td><td>Agar Cell Diffusion</td><td>표면적:부피 비(SA:V)</td><td>화학 + 생명</td><td>정량 데이터</td></tr>
+      <tr><td class="td-num">04</td><td>Bacteria Culture Club</td><td>미생물 대사(유산균)</td><td>화학 + 미생물</td><td>발효 배양</td></tr>
+      <tr><td class="td-num">05</td><td>Skin Shield</td><td>방어막(껍질·피부)</td><td>생명 + 미생물</td><td>1학기 종합 발표</td></tr>
+      <tr><td class="td-num">06</td><td>Ocean Acidification in a Cup</td><td>골격 화학 조성(종 간 차이)</td><td>화학 + 환경</td><td>🐾 동물 확장</td></tr>
+      <tr><td class="td-num">07</td><td>Bean-Counter Evolution</td><td>형태적 적합도</td><td>생명 + 진화</td><td>🐾 동물 중심</td></tr>
+      <tr><td class="td-num">08</td><td>Backyard Bug Bonanza + Disappearing Act</td><td>미시환경(microhabitat)</td><td>생태 + 동물</td><td>🐾 야외활동</td></tr>
+      <tr><td class="td-num">09</td><td>종합 프로젝트</td><td>(전체 통합)</td><td>화학 + 생명</td><td>흐름도 제작</td></tr>
+      <tr><td class="td-num">10</td><td>최종 발표</td><td>"모르는 것"의 인정</td><td>전체</td><td>세특 정리</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</section>
+
+<!-- ═══ FINAL ═══ -->
+<section>
+<div class="reveal">
+  <div class="final-box">
+    <h3>희영아, 10번의 실험이지만<br>질문은 하나야</h3>
+    <p>
+      이 커리큘럼의 모든 실험은 결국 한 가지 질문으로 모여 —<br>
+      <span class="red">"같은 Input인데 왜 Output이 다른가?"</span><br><br>
+      다른 동아리가 "이번 주는 이거, 다음 주는 저거"로 흩어질 때,
+      네 동아리는 <strong>매번 같은 렌즈</strong>로 세상을 보는 거야.<br>
+      그 렌즈가 쌓이면, 세특에는 실험 목록이 아니라<br>
+      <strong>"과학적 사고 체계를 구축한 과정"</strong>이 남아.<br><br>
+      천천히 읽어보고 궁금한 거 있으면 언제든 물어봐.
+    </p>
+  </div>
+</div>
+</section>
+
+</div>
+
+<footer>
+  Chutzpah Education · 희영 동아리 10회차 커리큘럼 — 최종 (Exploratorium 기반)<br>
+  각 실험의 상세 프로토콜은 실험명 옆 Exploratorium 링크에서 바로 확인할 수 있어.
+</footer>
+
+<script>
+const obs = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
